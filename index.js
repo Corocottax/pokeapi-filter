@@ -21,9 +21,8 @@ const imgTipos = {
   dragon: "./assets/tipos/dragon.svg",
 };
 
-const peticion = () => {
-    
-    setTimeout(async () => {
+const peticion = async () => {
+
         for (let id = 1; id <= 151; id++) {
             const resultado = await fetch(BASE_URL + id);
             const pokemon = await resultado.json();
@@ -37,7 +36,6 @@ const peticion = () => {
           }
 
           printPokemons(ALL_POKEMONS);
-    }, 2000);
   
 };
 

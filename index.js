@@ -21,6 +21,8 @@ const imgTipos = {
   dragon: "./assets/tipos/dragon.svg",
 };
 
+const input$$ = document.querySelector("#input");
+
 const peticion = async () => {
 
         for (let id = 1; id <= 151; id++) {
@@ -85,7 +87,7 @@ const getAllTipos = (pokemons) => {
   printTipos(tipos);
 };
 
-const printTipos = (tipos) => {
+const printTipos = () => {
   const divFilters$$ = document.querySelector("#filters");
 
   divFilters$$.innerHTML = "";
@@ -121,4 +123,12 @@ const filterByType = (pokemons, tipo) => {
 
 }
 
+const filterByName = (e) => {
+    const filteredPoke = ALL_POKEMONS.filter((pokemon) => pokemon.name.toLowerCase().includes(e.target.value.toLowerCase()));
+
+    printPokemons(filteredPoke);
+}
+
 peticion();
+
+input$$.addEventListener("input", filterByName);
